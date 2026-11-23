@@ -1,1 +1,9 @@
+
 @import "tailwindcss";
+@font-face {
+    font-family: 'mainfont';
+    src: url(./assets/fonts/Tajawal-Regular.ttf);
+}
+body{
+    font-family: mainfont;
+}

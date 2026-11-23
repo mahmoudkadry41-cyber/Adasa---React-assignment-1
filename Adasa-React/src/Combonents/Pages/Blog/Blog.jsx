@@ -1,7 +1,7 @@
 import React from 'react'
 import styleData from './Blog.module.css'
-export default function About() {
+export default function Blog() {
   return (
-    <div>About</div>
+    <div>Blog</div>
   )
 }
