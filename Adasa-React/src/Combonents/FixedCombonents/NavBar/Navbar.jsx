@@ -6,7 +6,7 @@ const [listDropped , setListDropped]= useState(false)
  console.log("droplistvalue", listDropped);
   return (
     <>
-      <nav className="w-full min-h-20 bg-[#161616] pb-4">
+      <nav className={`${listDropped? 'suppdropdownlistanimi':'supdropoutanimi'}  w-full min-h-20 bg-[#161616] pb-4 `}>
         <div className="w-[92%] md:w-[85%] lg:w-[80%] h-20 flex items-center justify-between m-auto">
           <div className="flex flex-row gap-4.5">
             <img src={Logoimg} alt="Adasa logo" className="m-auto w-12.5 h-12.5" />
@@ -37,7 +37,7 @@ const [listDropped , setListDropped]= useState(false)
           <button onClick={()=>setListDropped((state)=>!state)} className="  md:hidden group w-12 h-12 rounded-xl hover:border-gray-600 border border-transparent transition duration-300"><i className="fa-solid fa-bars text-gray-400 group-hover:text-amber-500 text-2xl m-auto p-0 transition duration-300"></i></button>
 
         </div>
-        <div className=" rounded-2xl m-auto bottom-0 flex flex-col gap-2.5 p-6 bg-[#3837374b] w-[92%] ">
+        <div className={`  ${listDropped ? 'flex dropdownlistanimi':'flex droppoutanimi'} md:hidden rounded-2xl m-auto bottom-0  flex-col gap-2.5 p-6 bg-[#3837374b] w-[92%]`}>
            
             <button className="rounded-lg text-gray-400 text-[14px] font-bold hover:text-white hover:bg-[#16161694] active:bg-[#2D1D13] border border-transparent active:border-amber-500 w-full h-10 cursor-pointer transition-all duration-300 whitespace-nowrap text-start ps-4">
               الرئيسية

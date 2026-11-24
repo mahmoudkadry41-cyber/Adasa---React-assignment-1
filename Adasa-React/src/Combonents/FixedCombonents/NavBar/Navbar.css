@@ -1,0 +1,67 @@
+.dropdownlistanimi{
+    animation-name: dropdownlist;
+    animation-duration: 300ms;
+    transform-origin: top;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+@keyframes dropdownlist {
+    0%{
+        opacity: 0;
+        transform: translateY(-200px) scaleY(0.5)
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0) scaleY(1)
+    }
+
+}
+.droppoutanimi{
+    animation-name: droppoutlist;
+    animation-duration: 300ms;
+    transform-origin: bottom;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+@keyframes droppoutlist {
+    0%{
+        opacity: 1;
+        
+    }
+    100%{
+        opacity: 0;
+        
+        
+    }
+
+}
+.suppdropdownlistanimi{
+    animation-name: suppdropdownlistanimi;
+    animation-duration: 300ms;
+    transform-origin: top;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+@keyframes suppdropdownlistanimi {
+    0%{
+       max-height: 80px; 
+    }
+    100%{
+        max-height: 500px; 
+    }
+}
+.supdropoutanimi{
+        animation-name: suppdropoutlistanimi;
+    animation-duration: 1s;
+    transform-origin: bottom;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+@keyframes suppdropoutlistanimi {
+    0%{
+       max-height: 500px; 
+    }
+    100%{
+        max-height: 80px; 
+    }
+}
