@@ -6,7 +6,7 @@ const [listDropped , setListDropped]= useState(false)
  console.log("droplistvalue", listDropped);
   return (
     <>
-      <nav className={`${listDropped? 'suppdropdownlistanimi':'supdropoutanimi'} w-full min-h-20 bg-[#161616] pb-4 `}>
+      <nav className={`${listDropped? 'suppdropdownlistanimi':'supdropoutanimi'} w-full min-h-20 bg-[#161616] pb-4 sticky top-0`}>
         <div className="w-[92%] md:w-[85%] lg:w-[80%] h-20 flex items-center justify-between m-auto">
           <div className="flex flex-row gap-4.5">
             <img src={Logoimg} alt="Adasa logo" className="m-auto w-12.5 h-12.5" />
