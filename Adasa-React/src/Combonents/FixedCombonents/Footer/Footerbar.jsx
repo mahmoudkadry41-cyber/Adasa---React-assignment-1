@@ -18,16 +18,16 @@ export default function Footerbar() {
             </p>
             <div className="flex flex-row justify-center items-center h-17 gap-3">
               <button className="rounded-2xl text-[18px] font-bold text-[#525050] bg-[#2c2b2b] hover:bg-amber-500 w-12 h-12 cursor-pointer transition duration-300 whitespace-nowrap hover:scale-110">
-                <i class="fa-brands fa-x-twitter"></i>
+                <i className="fa-brands fa-x-twitter"></i>
               </button>
               <button className="rounded-2xl border border-#525050 text-[18px] font-bold text-[#525050] bg-[#2c2b2b] hover:bg-amber-500 w-12 h-12 cursor-pointer transition duration-300 whitespace-nowrap hover:scale-110">
-                <i class="fa-brands fa-github"></i>
+                <i className="fa-brands fa-github"></i>
               </button>
               <button className="rounded-2xl border border-#525050  text-[18px] font-bold text-[#525050] bg-[#2c2b2b] hover:bg-amber-500 w-12 h-12 cursor-pointer transition duration-300 whitespace-nowrap hover:scale-110">
-                <i class="fa-brands fa-linkedin"></i>
+                <i className="fa-brands fa-linkedin"></i>
               </button>
               <button className="rounded-2xl border border-#525050  text-[18px] font-bold text-[#525050] bg-[#2c2b2b] hover:bg-amber-500 w-12 h-12 cursor-pointer transition duration-300 whitespace-nowrap hover:scale-110">
-                <i class="fa-brands fa-youtube"></i>
+                <i className="fa-brands fa-youtube"></i>
               </button>
             </div>
           </div>
@@ -40,19 +40,19 @@ export default function Footerbar() {
             </div>
             <ul className="flex flex-col gap-4">
               <li className="  cursor-pointer overflow-hidden relative group">
-                <i class="fa-solid fa-chevron-left absolute -right-4 top-1 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300 ease-out text-amber-500"></i>
+                <i className="fa-solid fa-chevron-left absolute -right-4 top-1 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300 ease-out text-amber-500"></i>
                 <span className="text-[#525050] font-bold inline-block group-hover:-translate-x-5 transition-transform duration-500 ease-out group-hover:text-amber-500">
                   الرئيسية
                 </span>
               </li>
               <li className="  cursor-pointer overflow-hidden relative group">
-                <i class="fa-solid fa-chevron-left absolute -right-4 top-1 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300 ease-out text-amber-500"></i>
+                <i className="fa-solid fa-chevron-left absolute -right-4 top-1 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300 ease-out text-amber-500"></i>
                 <span className="text-[#525050] font-bold inline-block group-hover:-translate-x-5 transition-transform duration-500 ease-out group-hover:text-amber-500">
                   المدونة
                 </span>
               </li>
               <li className="  cursor-pointer overflow-hidden relative group">
-                <i class="fa-solid fa-chevron-left absolute -right-4 top-1 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300 ease-out text-amber-500"></i>
+                <i className="fa-solid fa-chevron-left absolute -right-4 top-1 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300 ease-out text-amber-500"></i>
                 <span className="text-[#525050] font-bold inline-block group-hover:-translate-x-5 transition-transform duration-500 ease-out group-hover:text-amber-500">
                   من نحن
                 </span>
@@ -68,25 +68,25 @@ export default function Footerbar() {
             </div>
             <ul className="flex flex-col gap-4">
               <li className="  cursor-pointer overflow-hidden relative group">
-                <i class="fa-solid fa-chevron-left absolute -right-4 top-1 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300 ease-out text-amber-500"></i>
+                <i className="fa-solid fa-chevron-left absolute -right-4 top-1 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300 ease-out text-amber-500"></i>
                 <span className="text-[#525050] font-bold inline-block group-hover:-translate-x-5 transition-transform duration-500 ease-out group-hover:text-amber-500">
                   اضاءة
                 </span>
               </li>
               <li className="  cursor-pointer overflow-hidden relative group">
-                <i class="fa-solid fa-chevron-left absolute -right-4 top-1 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300 ease-out text-amber-500"></i>
+                <i className="fa-solid fa-chevron-left absolute -right-4 top-1 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300 ease-out text-amber-500"></i>
                 <span className="text-[#525050] font-bold inline-block group-hover:-translate-x-5 transition-transform duration-500 ease-out group-hover:text-amber-500">
                   بورتريه
                 </span>
               </li>
               <li className="  cursor-pointer overflow-hidden relative group">
-                <i class="fa-solid fa-chevron-left absolute -right-4 top-1 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300 ease-out text-amber-500"></i>
+                <i className="fa-solid fa-chevron-left absolute -right-4 top-1 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300 ease-out text-amber-500"></i>
                 <span className="text-[#525050] font-bold inline-block group-hover:-translate-x-5 transition-transform duration-500 ease-out group-hover:text-amber-500">
                   مناظر طبيعية
                 </span>
               </li>
               <li className="  cursor-pointer overflow-hidden relative group">
-                <i class="fa-solid fa-chevron-left absolute -right-4 top-1 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300 ease-out text-amber-500"></i>
+                <i className="fa-solid fa-chevron-left absolute -right-4 top-1 opacity-0 group-hover:opacity-100 group-hover:right-0 transition-all duration-300 ease-out text-amber-500"></i>
                 <span className="text-[#525050] font-bold inline-block group-hover:-translate-x-5 transition-transform duration-500 ease-out group-hover:text-amber-500">
                   تقنيات
                 </span>
