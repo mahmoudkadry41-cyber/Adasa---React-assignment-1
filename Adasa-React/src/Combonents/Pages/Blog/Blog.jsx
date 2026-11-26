@@ -8,11 +8,17 @@ export default function Blog() {
   const [articscategory, setarticlecaregory] = useState(categories);
   const [articleposts, setarticleposts] = useState(posts);
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage=6;
-  const totalPages = Math.ceil(articleposts.length / postsPerPage);
-  const lasIndex = currentPage * postsPerPage
-  const firstIndex = lasIndex - postsPerPage
-  const currentPosts = articleposts.slice(firstIndex,lasIndex)
+  const postsPerPage = 6;
+  const [selectedCategory, setSelectedCategory] = useState("جميع المقالات");
+  const filteredPostes =
+    selectedCategory === "جميع المقالات"
+      ? posts
+      : posts.filter((post) => post.category === selectedCategory);
+
+  const totalPages = Math.ceil(filteredPostes.length / postsPerPage);
+  const lasIndex = currentPage * postsPerPage;
+  const firstIndex = lasIndex - postsPerPage;
+  const currentPosts = filteredPostes.slice(firstIndex, lasIndex);
 
   return (
     <section className="blogHeroSection w-full">
@@ -43,7 +49,17 @@ export default function Blog() {
           />
           <div className="flex gap-2">
             {articscategory.map((category) => {
-              return <Filterblogbutton categoryName={category.name} />;
+              return (
+                <Filterblogbutton
+                  key={category.name}
+                  categoryName={category.name}
+                  isActive={selectedCategory === category.name}
+                  onClick={() => {
+                    setSelectedCategory(category.name);
+                    setCurrentPage(1);
+                  }}
+                />
+              );
             })}
           </div>
         </div>
@@ -51,7 +67,8 @@ export default function Blog() {
       <div className="articlesummary w-full mt-4 ">
         <div className="w-[92%] md:w-[85%] lg:w-[80%] min-h-15 m-auto flex justify-between">
           <p className="text-[#696766] text-xl">
-            عرض <span className="text-white">{articleposts.length}</span> مقالات
+            عرض <span className="text-white">{filteredPostes.length}</span>{" "}
+            مقالات
           </p>
           <div className="p-1 h-full bg-[#161616] flex gap-3 rounded-xl">
             <div className="  p-2 rounded-lg  active:bg-amber-500 ">
@@ -63,34 +80,41 @@ export default function Blog() {
           </div>
         </div>
       </div>
-      <div className="articlesummaies w-[92%] md:w-[85%] lg:w-[80%] grid grid-cols-3  bg-amber-200 m-auto gap-4" >
-        {currentPosts.map((post)=>{
-          return <Articlesummary 
-          img={post.image} 
-          post = {post} 
-          title={post.title} 
-          excerpt = {post.excerpt} 
-          date = {post.date} 
-          readTime ={post.readTime} 
-          author={post.author.name}
-          role={post.author.role} 
-          avatar={post.author.avatar} 
-          category ={post.category}
-          key={post.id}
-          />
+      <div className="articlesummaies w-[92%] md:w-[85%] lg:w-[80%] grid grid-cols-3  bg-amber-200 m-auto gap-4">
+        {currentPosts.map((post) => {
+          return (
+            <Articlesummary
+              img={post.image}
+              post={post}
+              title={post.title}
+              excerpt={post.excerpt}
+              date={post.date}
+              readTime={post.readTime}
+              author={post.author.name}
+              role={post.author.role}
+              avatar={post.author.avatar}
+              category={post.category}
+              key={post.id}
+            />
+          );
         })}
       </div>
       <div className="w-[92%] md:w-[85%] lg:w-[80%] m-auto pt-10 pb-10 flex justify-center gap-4">
-        {[...Array(totalPages).keys()].map(index=>{
-          const pageNumber=index + 1
-          return <Pagesbutton
-          onClick ={()=>setCurrentPage(pageNumber)}
-           key={index}
-           page={pageNumber}
-           isActive={currentPage===pageNumber}
+        {[...Array(totalPages).keys()].map((index) => {
+          const pageNumber = index + 1;
+          return (
+            <Pagesbutton
+              onClick={() => setCurrentPage(pageNumber)}
+              key={index}
+              page={pageNumber}
+              isActive={currentPage === pageNumber}
             />
+          );
         })}
       </div>
+      <p className="text-[#696766] text-center">
+        صفحة {currentPage} من {totalPages}
+      </p>
     </section>
   );
 }
