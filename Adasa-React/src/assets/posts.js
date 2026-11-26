@@ -506,6 +506,7 @@
     }
   ],
   "categories": [
+    { "name": "جميع المقالات", "count": 28, "color": "red" },
     { "name": "إضاءة", "count": 3, "color": "emerald" },
     { "name": "بورتريه", "count": 3, "color": "purple" },
     { "name": "مناظر طبيعية", "count": 2, "color": "blue" },
