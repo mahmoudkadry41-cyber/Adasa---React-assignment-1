@@ -7,3 +7,6 @@
 body{
     font-family: mainfont;
 }
+html {
+  scroll-behavior: smooth;
+}

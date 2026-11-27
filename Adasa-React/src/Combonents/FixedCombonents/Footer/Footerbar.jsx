@@ -17,7 +17,7 @@ export default function Footerbar() {
               ونصائح عملية لتطوير مهاراتكم.
             </p>
             <div className="flex flex-row justify-center items-center h-17 gap-3">
-              <button className="rounded-2xl text-[18px] font-bold text-[#525050] bg-[#2c2b2b] hover:bg-amber-500 w-12 h-12 cursor-pointer transition duration-300 whitespace-nowrap hover:scale-110">
+              <button className="rounded-2xl border border-#525050 text-[18px] font-bold text-[#525050] bg-[#2c2b2b] hover:bg-amber-500 w-12 h-12 cursor-pointer transition duration-300 whitespace-nowrap hover:scale-110">
                 <i className="fa-brands fa-x-twitter"></i>
               </button>
               <button className="rounded-2xl border border-#525050 text-[18px] font-bold text-[#525050] bg-[#2c2b2b] hover:bg-amber-500 w-12 h-12 cursor-pointer transition duration-300 whitespace-nowrap hover:scale-110">
