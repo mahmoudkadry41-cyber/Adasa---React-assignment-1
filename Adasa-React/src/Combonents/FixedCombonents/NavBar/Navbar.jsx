@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Logoimg from "./images/logo.png";
 import "./Navbar.css";
+import { Link } from "react-router";
 export default function Navbar() {
 const [listDropped , setListDropped]= useState(false)
  console.log("droplistvalue", listDropped);
@@ -18,15 +19,17 @@ const [listDropped , setListDropped]= useState(false)
             </div>
           </div>
           <div className="hidden md:flex border rounded-full border-gray-600 w-75 h-[70%] flex-row justify-between items-center p-4">
-            <button className="rounded-full text-gray-400 text-[14px] font-bold hover:text-white active:bg-amber-500 w-18.75 h-10 cursor-pointer transition duration-300 whitespace-nowrap">
-              المدونة
-            </button>
-            <button className="rounded-full text-gray-400 text-[14px] font-bold hover:text-white active:bg-amber-500 w-18.75 h-10 cursor-pointer transition duration-300 whitespace-nowrap">
-              من نحن
-            </button>
-            <button className="rounded-full text-gray-400 text-[14px] font-bold hover:text-white active:bg-amber-500 w-18.75 h-10 cursor-pointer transition duration-300 whitespace-nowrap">
+           
+            <Link to="/home" className="flex items-center justify-center rounded-full text-gray-400 text-[14px] font-bold hover:text-white active:bg-amber-500 w-18.75 h-10 cursor-pointer transition duration-300 whitespace-nowrap">
               الرئيسية
-            </button>
+            </Link>
+            <Link to="/blog" className=" flex items-center justify-center rounded-full text-gray-400 text-[14px] font-bold hover:text-white active:bg-amber-500 w-18.75 h-10 cursor-pointer transition duration-300 whitespace-nowrap">
+              المدونة
+            </Link>
+            <Link to="/about" className="flex items-center justify-center rounded-full text-gray-400 text-[14px] font-bold hover:text-white active:bg-amber-500 w-18.75 h-10 cursor-pointer transition duration-300 whitespace-nowrap">
+              من نحن
+            </Link>
+
           </div>
           <div className="hidden md:flex flex-row gap-4.5">
             <button className="group w-12 h-12 rounded-xl hover:border-gray-600 border border-transparent transition duration-300"><i className="fa-solid fa-magnifying-glass text-gray-400 group-hover:text-amber-500 text-1xl m-auto p-0 transition duration-300"></i></button>
