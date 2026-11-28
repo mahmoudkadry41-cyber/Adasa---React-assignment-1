@@ -12,14 +12,16 @@ export default function App() {
   const Routes = createBrowserRouter(
     [
       {path:"", element:<Layout/> ,children:[
+        {index:true , element:<Home/>},
       {path:"/home",element:<Home/>},
       {path:"/blog",element:<Blog/>},
+      {path:"/article/:slug",element:<Articleindetails/>},
       {path:"/About",element:<About/>}
       ]},
     ]
   )
   return (
-    <Articleindetails/>
-   // <RouterProvider router={Routes}/>
+    
+   <RouterProvider router={Routes}/>
   )
 }

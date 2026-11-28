@@ -33,9 +33,9 @@ const [listDropped , setListDropped]= useState(false)
           </div>
           <div className="hidden md:flex flex-row gap-4.5">
             <button className="group w-12 h-12 rounded-xl hover:border-gray-600 border border-transparent transition duration-300"><i className="fa-solid fa-magnifying-glass text-gray-400 group-hover:text-amber-500 text-1xl m-auto p-0 transition duration-300"></i></button>
-            <button className="rounded-full  text-[14px] font-bold text-white bg-amber-500 w-28.75 h-12 cursor-pointer transition duration-300 whitespace-nowrap hover:-translate-y-1">
+            <Link to={`./blog`} className="rounded-full flex justify-center items-center text-[14px] font-bold text-white bg-amber-500 w-28.75 h-12 cursor-pointer transition duration-300 whitespace-nowrap hover:-translate-y-1">
              ابدأ بالقراءة
-            </button>
+            </Link>
           </div>
           <button onClick={()=>setListDropped((state)=>!state)} className="  md:hidden group w-12 h-12 rounded-xl hover:border-gray-600 border border-transparent transition duration-300"><i className="fa-solid fa-bars text-gray-400 group-hover:text-amber-500 text-2xl m-auto p-0 transition duration-300"></i></button>
 

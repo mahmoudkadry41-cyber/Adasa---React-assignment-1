@@ -1,11 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { posts, categories, siteinfo } from "../../../assets/posts.js";
+import Articlesummary from "./Articlesummary.jsx";
+import { useParams } from "react-router";
+import { Link } from "react-router";
 export default function Articleindetails() {
-  const post = posts[0];
+  const {slug} = useParams()
+  useEffect(()=>{
+    window.scrollTo({top:0, behavior:'smooth'})
+  }, [slug])
+  const post = posts.find((p)=>p.slug===slug)||posts[0];
   const contentsBlocks = post.content
     .split("\n\n")
     .map((block) => block.trim());
   console.log(contentsBlocks);
+  const relatedPostsExeptThecurrent = posts.filter((p)=> p.id !== post.id && p.tags.some((tag)=>post.tags.includes(tag))).slice(0,3)
+  console.log(relatedPostsExeptThecurrent)
   return (
     <div className="bg-black min-h-screen">
       <div
@@ -13,12 +22,12 @@ export default function Articleindetails() {
         className="w-full h-164  bg-cover bg-center bg-no-repeat overflow-hidden"
       >
         <div className=" w-full h-full bg-linear-to-b from-black/20 via-[#09090B]/60 to-[#09090B] p-5">
-          <div className="bg-[#0a0a0a71] w-51 h-14 rounded-2xl text-[#C5C6C7] flex justify-center items-center p-4 mb-8">
-            <i className="fa-solid fa-house active:text-amber-500 transition duration-300 cursor-pointer"></i>
+          <div className=" bg-[#0a0a0a71] w-fit h-14 rounded-2xl text-[#C5C6C7] flex justify-center items-center p-4 mb-8">
+            <Link to={`/home`} className="cursor-pointer"><i className="fa-solid fa-house active:text-amber-500 transition duration-300 cursor-pointer"></i></Link>
             <i className="fa-solid fa-angle-left"></i>
-            <span className="active:text-amber-500 transition duration-300 cursor-pointer">
+            <Link to={`/blog`} className="active:text-amber-500 transition duration-300 cursor-pointer">
               المدونة
-            </span>
+            </Link>
             <i className="fa-solid fa-angle-left"></i>
             <span className="text-amber-500 transition duration-300 cursor-pointer">
               {post.category}
@@ -159,7 +168,7 @@ export default function Articleindetails() {
                 </div>
                 <p className="text-white text-2xl font-bold">لا تفوت جديدنا</p>
                 <p className="text-[#635f5d]">اشتراك للحصول على احدث المقالات</p>
-                <button className="bg-amber-600 text-white p-2 w-40 rounded-2xl mt-5">تصفح المزيد</button>
+                <Link to={`/blog`} className="bg-amber-600 text-white p-2 w-40 h-10 flex justify-center items-center duration-300 hover:-translate-y-1 rounded-2xl mt-5">تصفح المزيد</Link>
             </div>
           </div>
         </div>
@@ -181,8 +190,24 @@ export default function Articleindetails() {
               <i class="fa-solid fa-arrow-left-long group-hover:-translate-x-2 duration-300"></i>
             </div>
           </div>
-          <div className="grid grid-cols-3">
-            
+          <div className="grid grid-cols-3 gap-3">
+            {relatedPostsExeptThecurrent.length>0? ( relatedPostsExeptThecurrent.map((p)=>(
+                          <Articlesummary
+                            img={p.image}
+                            post={p}
+                            title={p.title}
+                            excerpt={p.excerpt}
+                            date={p.date}
+                            readTime={p.readTime}
+                            author={p.author.name}
+                            role={p.author.role}
+                            avatar={p.author.avatar}
+                            category={p.category}
+                            key={p.id}
+                          />
+            )))
+          :`${console.log('no articles')}`}
+
           </div>
         </div>
       </section>

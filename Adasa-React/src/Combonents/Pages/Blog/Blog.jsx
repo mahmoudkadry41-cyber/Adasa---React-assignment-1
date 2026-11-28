@@ -1,20 +1,52 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Blog.css";
 import { posts, categories, siteinfo } from "../../../assets/posts.js";
 import Filterblogbutton from "../../FixedCombonents/buttons/Filterblogbutton.jsx";
 import Articlesummary from "../../FixedCombonents/Articlesummary/Articlesummary.jsx";
 import Pagesbutton from "../../FixedCombonents/buttons/Pagesbutton.jsx";
+import { useLocation } from "react-router";
 export default function Blog() {
   const [articscategory, setarticlecaregory] = useState(categories);
   const [articleposts, setarticleposts] = useState(posts);
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 6;
-  const [selectedCategory, setSelectedCategory] = useState("جميع المقالات");
-  const filteredPostes =
-    selectedCategory === "جميع المقالات"
-      ? posts
-      : posts.filter((post) => post.category === selectedCategory);
+    const location = useLocation();
 
+    const incomeingCategory = location.state?.category;
+
+  const [selectedCategory, setSelectedCategory] = useState(incomeingCategory || "جميع المقالات");
+  // const filteredPostes =
+  //   selectedCategory === "جميع المقالات"
+  //     ? posts
+  //     : posts.filter((post) => post.category === selectedCategory);
+
+
+      useEffect(()=>{
+    window.scrollTo({top:0, behavior:'smooth'})
+  }, []);
+  useEffect(()=> {
+    if(incomeingCategory){
+      setSelectedCategory(incomeingCategory);
+      setCurrentPage(1);
+    }
+  },[incomeingCategory])
+
+  const [searchQuery,setSearchQuery] = useState('')
+  const cleanQuery = searchQuery.trim().toLocaleLowerCase();
+  const filteredPostes =posts.filter((post)=>{
+    const matchSearch = 
+    post.author.name.toLocaleLowerCase().includes(cleanQuery)||
+    post.title.toLocaleLowerCase().includes(cleanQuery)||
+    post.excerpt.toLocaleLowerCase().includes(cleanQuery)||
+    post.category.toLocaleLowerCase().includes(cleanQuery)||
+    post.tags?.some((tag)=>tag.toLocaleLowerCase().includes(cleanQuery));
+    if(cleanQuery){
+      return matchSearch
+    }
+    return (
+      selectedCategory === "جميع المقالات" ||  post.category === selectedCategory
+    )
+  })
   const totalPages = Math.ceil(filteredPostes.length / postsPerPage);
   const lasIndex = currentPage * postsPerPage;
   const firstIndex = lasIndex - postsPerPage;
@@ -44,7 +76,12 @@ export default function Blog() {
         <div className="w-[92%] md:w-[85%] lg:w-[80%] min-h-15 bg-[#0A0A0A] m-auto flex justify-between items-center">
           <input
             type="search"
-            className="placeholder:text-[#696766] border-2 border-[#3a3837] focus:outline-none focus:border-amber-500 duration-300 w-93 h-10 rounded-sm bg-[#161616]"
+            value={searchQuery}
+            onChange={(e)=>{
+              setSearchQuery(e.target.value);
+              setCurrentPage(1)
+            }}
+            className="text-white placeholder:text-[#696766] border-2 border-[#3a3837] focus:outline-none focus:border-amber-500 duration-300 w-93 h-10 rounded-sm bg-[#161616]"
             placeholder="ابحث في المقالات..."
           />
           <div className="flex gap-2">
@@ -80,7 +117,7 @@ export default function Blog() {
           </div>
         </div>
       </div>
-      <div className="articlesummaies w-[92%] md:w-[85%] lg:w-[80%] grid grid-cols-3  bg-amber-200 m-auto gap-4">
+      <div className="articlesummaies w-[92%] md:w-[85%] lg:w-[80%] grid grid-cols-3  m-auto gap-4">
         {currentPosts.map((post) => {
           return (
             <Articlesummary

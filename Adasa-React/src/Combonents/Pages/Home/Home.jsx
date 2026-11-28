@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Home.css";
 import { posts, categories, siteinfo } from "../../../assets/posts.js";
 import Chosenarticles from "../../FixedCombonents/Articlesummary/Chosenarticles";
 import Homepagefilteration from "../../FixedCombonents/buttons/Homepagefilteration.jsx";
 import Articlesummary from "../../FixedCombonents/Articlesummary/Articlesummary.jsx";
+import { Link } from "react-router";
 
 export default function Home() {
   const [articscategory, setarticlecaregory] = useState(categories);
@@ -22,6 +23,9 @@ export default function Home() {
   const currentPosts = filteredPostes.slice(firstIndex, lasIndex);
   const firstThreePosts = articleposts.slice(0, 3);
   const newestPosts = [...posts].sort((a,b)=> new Date(b.date) - new Date(a.date) || b.id-a.id).slice(0,3)
+    useEffect(()=>{
+    window.scrollTo({top:0, behavior:'smooth'})
+  }, [])
   return (
     <div className="Home">
       <section className="Herosection w-full min-h-screen ">
@@ -42,13 +46,13 @@ export default function Home() {
             انغمس في أسرار المحترفين ونصائح عملية لتطوير مهاراتك في التصوير.
           </p>
           <div className="w-full  flex justify-center items-center gap-5">
-            <button className="group rounded-full text-[14px] font-bold text-white bg-amber-500 p-3 h-12 cursor-pointer transition duration-300 whitespace-nowrap hover:-translate-y-1">
+            <Link to={'/blog'} className="group rounded-full text-[14px] font-bold text-white bg-amber-500 p-3 h-12 cursor-pointer transition duration-300 whitespace-nowrap hover:-translate-y-1">
               استكشف المقالات{" "}
               <i className="fa-solid fa-arrow-left group-hover:-translate-x-1 duration-300"></i>
-            </button>
-            <button className="group rounded-full text-[14px] font-bold text-white bg-transparent p-3 h-12 cursor-pointer transition duration-300 whitespace-nowrap hover:-translate-y-1 border border-[#8f8c8c]">
+            </Link>
+            <Link to={'/about'} className="group rounded-full text-[14px] font-bold text-white bg-transparent p-3 h-12 cursor-pointer transition duration-300 whitespace-nowrap hover:-translate-y-1 border border-[#8f8c8c]">
               <i className="fa-solid fa-circle-exclamation"></i> اعرف المزيد
-            </button>
+            </Link>
           </div>
           <div className="w-full flex justify-around">
             <div className="flex flex-col justify-around items-center bg-[#161513] rounded-2xl border border-[#262626] h-25 w-25 p-3 hover:scale-110 duration-300">
@@ -112,7 +116,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="pt-15 w-full flex flex-col items-center bg-[#09090B]">
+      <section className="pt-15 w-full flex flex-col items-center bg-[#09090B] pt-20 pb-10">
         <div className=" p-3 border w-40 border-amber-500 rounded-full flex justify-center items-center gap-3.5 bg-[#fe5d003b]">
           <div className="flex gap-1.5">
             <div className="animate-pulse w-1.5 h-1.5 bg-amber-300 rounded-full"></div>
@@ -137,7 +141,7 @@ export default function Home() {
           })}
         </div>
       </section>
-      <section className="newestArticles pt-8 flex flex-col bg-[#09090B]">
+      <section className="newestArticles  flex flex-col bg-[#09090B] pt-20 pb-10">
         <div className="w-[92%] md:w-[85%] lg:w-[80%] flex flex-col m-auto">
           <div className=" p-3 border w-30 border-amber-500 rounded-full flex justify-center items-center gap-3.5 bg-[#fe5d003b]">
             <div className="flex gap-1.5">
@@ -155,7 +159,7 @@ export default function Home() {
             </button>
           </div>
         </div>
-        <div className="w-[92%] md:w-[85%] lg:w-[80%] m-auto grid grid-cols-3 gap-3">
+        <div className="w-[92%] md:w-[85%] lg:w-[80%] m-auto grid grid-cols-3 pb-10 gap-3">
           {newestPosts.map((post)=>
             <Articlesummary
                           img={post.image}

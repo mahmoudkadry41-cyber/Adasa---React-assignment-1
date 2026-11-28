@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import { Link } from "react-router";
 export default function Articlesummary({
   img,
   post,
@@ -46,9 +46,9 @@ export default function Articlesummary({
             <p className="text-[#635f5d] text-sm">{role}</p>
           </div>
         </div>
-        <div className="bg-[#fe5d003b] rounded-full w-8 h-8 flex justify-center items-center border border-[#83441d] group-hover:bg-[#F36502] duration-300">
+        <Link to={`/article/${post.slug}`} className="cursor-pointer bg-[#fe5d003b] rounded-full w-8 h-8 flex justify-center items-center border border-[#83441d] group-hover:bg-[#F36502] duration-300">
           <i className="fa-solid fa-angle-left text-[#F36502] group-hover:text-white"></i>
-        </div>
+        </Link>
       </div>
     </article>
   );
